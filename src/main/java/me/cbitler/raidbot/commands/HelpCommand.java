@@ -5,20 +5,19 @@ import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 
 public class HelpCommand implements Command {
-    private final String helpMessage = "GW2-Raid-Bot Help:\n" +
+    private final String helpMessage = "GW2-Raid-Bot Hilfe:\n" +
             "Commands:\n" +
-            "**!setRaidLeaderRole [role]** - Set the role that serves as a raid leader. This is only usable by people with the manage server permission\n" +
-            "**!createRaid** - Start the raid creation process. Usable by people with the raid leader role\n" +
-            "**!removeFromRaid [raid id] [name]** - Remove a player from a raid. Only usable by raid leaders\n" +
-            "**!endRaid [raid id] [log link 1] [log link 2] ...** - End a raid, removing the message and DM'ing the users in the raid with log links. The log links are optional arguments\n" +
-            "**!help** - You are looking at it\n" +
-            "**!info** - Information about the bot and it's author\n" +
+            "**!setRaidLeaderRole [role]** - Setzt die Raidleiter Rolle. Dies kann nur von Personen mit der 'Server verwalten' Berechtigung ausgeführt werden.\n" +
+            "**!createRaid** - Startet den Raiderstellungsprozess. Kann nur von Raidleitern genutzt werden.\n" +
+            "**!removeFromRaid [raid id] [name]** - Entfernt eine Person aus dem Raid. Kann nur von Raidleitern genutzt werden.\n" +
+            "**!endRaid [raid id] [log link 1] [log link 2] ...** - Beendet einen Raid (Entfernt die Nachricht und sendet die logs an die Teilnehmer per privater Nachricht) (Das senden der Logs ist optional.)\n" +
+            "**!help** - Du befindest dich bereits in der Hilfe\n" +
+            "**!info** - Informationen zum Bot und seinem Autor\n" +
             "\n\n" +
-            "Help information:\n" +
-            "To use this bot, set the raid leader role, and then anyone with that role can use !createRaid. This will take them through" +
-            " a raid setup process with the bot prompting them for information. After that, it will create the raid in the channel specified" +
-            " Once that is there, people can join it by clicking on the reaction for their specialization, and then responding to the bot with the role" +
-            " that they want.";
+            "Anleitung:\n" +
+            "Um diesen Bot zu nutzen, setze die Raidleiter Rolle. Jeder mit dieser Rolle kann dann über !createRaid eine Raidankündigung erstellen. Dabei werden Sie durch" +
+            " den Raiderstellungsprozess geführt bei dem der Bot Sie zu Details des Raids befragt. Anschließend wird der Bot eine Raidankündigung im festgelegten Channel posten" +
+            " Sobald die Ankündigung gemacht wurde, können Personen sich für den Raid registrieren in dem sie auf das entsprechende Icon für die gewünschte Spezialisierung klicken und dann dem Bot antworten für welche Rolle Sie sich registieren wollen.";
     @Override
     public void handleCommand(String command, String[] args, TextChannel channel, User author) {
         channel.sendMessage(helpMessage).queue();

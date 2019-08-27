@@ -48,20 +48,20 @@ public class LogParser implements Runnable {
      */
     @Override
     public void run() {
-        channel.sendMessage("EVTC file recieved... downloading file").queue();
+        channel.sendMessage("EVTC file erhalten... Download gestartet").queue();
         String fileName = attachment.getFileName();
         for(Map.Entry<String,String> invalidCharacter : invalidCharacters.entrySet()) {
             fileName = fileName.replace(invalidCharacter.getKey(), invalidCharacter.getValue());
         }
         if(fileName.contains("..")) {
-            channel.sendMessage("Invalid character sequence found in file name '..'").queue();
+            channel.sendMessage("Ungültige Zeichen im Dateinamen gefunden! '..'").queue();
             return;
         }
         File file = new File("parser/" + attachment.getFileName());
 
         if(file.exists()) file.delete();
         attachment.download(file);
-        channel.sendMessage("File downloaded.. parsing.").queue();
+        channel.sendMessage("Datei heruntergeladen.. Umwandlung gestartet.").queue();
 
         String finalFileName = "";
         String dpsReportUrl = "";
@@ -89,9 +89,9 @@ public class LogParser implements Runnable {
 
             p.waitFor();
 
-            channel.sendMessage("File parsed. HTML Generated.").queue();
+            channel.sendMessage("Datei umgewandelt. HTML generiert.").queue();
 
-            channel.sendMessage("Uploading file to dps.report").queue();
+            channel.sendMessage("Datei zu dps.report hochgeladen").queue();
 
             CloseableHttpClient client = HttpClients.createDefault();
             HttpPost fileUpload = new HttpPost("https://dps.report/uploadContent?json=1");
@@ -114,7 +114,7 @@ public class LogParser implements Runnable {
 
             EnvVariables variables = new EnvVariables();
             variables.loadFromEnvFile();
-            channel.sendMessage("dps.report done. Uploading to gw2raidar").queue();
+            channel.sendMessage("dps.report fertig. Upload zu gw2raidar gestartet").queue();
             String tokenResponse =
                     this.handleCurl(new String[] {"curl", "-s", "-F", "username=" + variables.getValue("RAIDAR_USERNAME"), "-F", "password=" + variables.getValue("RAIDAR_PASSWORD"), "https://www.gw2raidar.com/api/v2/token"});
             System.out.println(tokenResponse);
@@ -129,7 +129,7 @@ public class LogParser implements Runnable {
             channel.sendMessage("Local parser: http://logs.v-l.pw/logs/" + finalFileName + "\n ").queue();
             channel.sendMessage("dps.report: " + dpsReportUrl.replace("\\","")).queue();
             if(raidarUploadSuccess) {
-                channel.sendMessage("Uploaded to GW2Raidar (no url provided)").queue();
+                channel.sendMessage("Report zu GW2Raidar hochgeladen(keine Url übermittelt)").queue();
             }
         } catch (IOException | InterruptedException | ParseException e) {
             e.printStackTrace();

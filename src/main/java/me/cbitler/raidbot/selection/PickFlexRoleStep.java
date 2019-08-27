@@ -31,10 +31,10 @@ public class PickFlexRoleStep implements SelectionStep {
     public boolean handleDM(PrivateMessageReceivedEvent e) {
         if(raid.isValidRole(e.getMessage().getRawContent())) {
             raid.addUserFlexRole(e.getAuthor().getId(), e.getAuthor().getName(), spec, e.getMessage().getRawContent(), true, true);
-            e.getChannel().sendMessage("Added to raid roster as flex role.").queue();
+            e.getChannel().sendMessage("Ausweichrolle hinzugefügt.").queue();
             return true;
         } else {
-            e.getChannel().sendMessage("Please choose a valid flex role.").queue();
+            e.getChannel().sendMessage("Bitte wähle eine gültige Auweichrolle aus.").queue();
             return false;
         }
     }
@@ -54,7 +54,7 @@ public class PickFlexRoleStep implements SelectionStep {
      */
     @Override
     public String getStepText() {
-        String text = "Pick a flex role (";
+        String text = "Bitte wähle eine Ausweichrolle (";
         for (int i = 0; i < raid.getRoles().size(); i++) {
             if (i == raid.getRoles().size()-1) {
                 text += raid.getRoles().get(i).getName();
@@ -62,7 +62,7 @@ public class PickFlexRoleStep implements SelectionStep {
                 text += (raid.getRoles().get(i).getName() + ", ");
             }
         }
-        text += ") or type cancel to cancel role selection.";
+        text += ") or gebe 'cancel' ein um die Rollenauswahl abzubrechen.";
 
         return text;
     }

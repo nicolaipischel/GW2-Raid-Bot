@@ -47,7 +47,7 @@ public class ChannelMessageHandler extends ListenerAdapter {
                 try {
                     e.getMessage().delete().queue();
                 } catch (Exception exception) {
-                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Make sure that the bot has the 'Manage message' permission").queue());
+                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Bitte stelle sicher, dass der Bot die Berechtigung 'Nachricht verwalten' besitzt.").queue());
                 }
             }
         }
@@ -60,12 +60,12 @@ public class ChannelMessageHandler extends ListenerAdapter {
                     bot.getCreationMap().put(e.getAuthor().getId(), runNameStep);
                     e.getMessage().delete().queue();
                 } catch (Exception exc) {
-                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Make sure that the bot has the 'Manage messages' permission").queue());
+                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Bitte stelle sicher, dass der Bot die Berechtigung 'Nachrichten verwalten' besitzt.").queue());
                 }
             } else if (e.getMessage().getRawContent().toLowerCase().startsWith("!removefromraid")) {
                 String[] split = e.getMessage().getRawContent().split(" ");
                 if(split.length < 3) {
-                    e.getAuthor().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Format for !removeFromRaid: !removeFromRaid [raid id] [name]").queue());
+                    e.getAuthor().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Format für !removeFromRaid: !removeFromRaid [raid id] [name]").queue());
                 } else {
                     String messageId = split[1];
                     String name = split[2];
@@ -77,13 +77,13 @@ public class ChannelMessageHandler extends ListenerAdapter {
                             raid.removeUserByName(name);
                         }
                     } else {
-                        e.getAuthor().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Non-existant raid").queue());
+                        e.getAuthor().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Raid existiert nicht!").queue());
                     }
                 }
                 try {
                     e.getMessage().delete().queue();
                 } catch (Exception exception) {
-                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Make sure that the bot has the 'Manage messages' permission").queue());
+                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Bitte stelle sicher, dass der Bot die Berechtigung 'Nachrichten verwalten' besitzt.").queue());
                 }
             }
         }
@@ -94,10 +94,10 @@ public class ChannelMessageHandler extends ListenerAdapter {
                     String[] commandParts = e.getMessage().getRawContent().split(" ");
                     String raidLeaderRole = combineArguments(commandParts, 1);
                     RaidBot.getInstance().setRaidLeaderRole(e.getMember().getGuild().getId(), raidLeaderRole);
-                    e.getAuthor().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Raid leader role updated to: " + raidLeaderRole).queue());
+                    e.getAuthor().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Raidleiter Rolle aktualisiert zu: " + raidLeaderRole).queue());
                     e.getMessage().delete().queue();
                 } catch (Exception exc) {
-                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Make sure that the bot has the 'Manage messages' permission").queue());
+                    e.getMember().getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Bitte stelle sicher, dass der Bot die Berechtigung 'Nachrichten verwalten' besitzt.").queue());
                 }
             }
         }

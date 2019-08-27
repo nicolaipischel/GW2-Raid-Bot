@@ -311,7 +311,7 @@ public class Raid {
      * @param logLinks The list of links
      */
     public void messagePlayersWithLogLinks(List<String> logLinks) {
-        String logLinkMessage = "ArcDPS reports from **" + this.getName() + "**:\n";
+        String logLinkMessage = "ArcDPS Reports von **" + this.getName() + "**:\n";
         for(String link : logLinks) {
             logLinkMessage += (link + "\n");
         }
@@ -342,17 +342,17 @@ public class Raid {
     private MessageEmbed buildEmbed() {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setTitle(getName());
-        builder.addField("Description:" , getDescription(), false);
+        builder.addField("Beschreibung:" , getDescription(), false);
         builder.addBlankField(false);
         if (getRaidLeaderName() != null) {
-            builder.addField("Leader: ", "**" + getRaidLeaderName() + "**", false);
+            builder.addField("Raidleiter: ", "**" + getRaidLeaderName() + "**", false);
         }
         builder.addBlankField(false);
-        builder.addField("Date: ", getDate(), true);
-        builder.addField("Time: ", getTime(), true);
+        builder.addField("Datum: ", getDate(), true);
+        builder.addField("Uhrzeit: ", getTime(), true);
         builder.addBlankField(false);
-        builder.addField("Roles:", buildRolesText(), true);
-        builder.addField("Flex Roles:", buildFlexRolesText(), true);
+        builder.addField("Rollen:", buildRolesText(), true);
+        builder.addField("Ausweichrollen:", buildFlexRolesText(), true);
         builder.addBlankField(false);
         builder.addField("ID: ", messageId, false);
 

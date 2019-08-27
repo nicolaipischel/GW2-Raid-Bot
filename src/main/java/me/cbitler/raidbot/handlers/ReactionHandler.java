@@ -29,7 +29,7 @@ public class ReactionHandler extends ListenerAdapter {
                         bot.getRoleSelectionMap().put(e.getUser().getId(), step);
                         e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage(step.getStepText()).queue());
                     } else {
-                        e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("You are already selecting a role.").queue());
+                        e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Du bist bereits am Auswählen einer Rolle.").queue());
                     }
                 } else {
                     //TODO: Remove repetitive logic here
@@ -39,10 +39,10 @@ public class ReactionHandler extends ListenerAdapter {
                             bot.getRoleSelectionMap().put(e.getUser().getId(), step);
                             e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage(step.getStepText()).queue());
                         } else {
-                            e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("You are already selecting a flex role.").queue());
+                            e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Du bist bereits am Auswählen einer Ausweichrolle.").queue());
                         }
                     } else {
-                        e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("You have selected the maximum number of flex roles. Press the X reaction to re-select your roles").queue());
+                        e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Du hast die maximale Anzahl an Ausweichrollen erreicht. Klicke auf das X icon um deine Rollen erneut auszuwählen").queue());
                     }
                     //e.getUser().openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("You are already in this raid. Click the X to select a new role").queue());
                 }

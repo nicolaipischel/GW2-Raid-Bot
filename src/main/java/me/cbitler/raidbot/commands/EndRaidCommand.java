@@ -31,12 +31,12 @@ public class EndRaidCommand implements Command {
                     }
                     boolean deleted = RaidManager.deleteRaid(raidId);
                     if (deleted) {
-                        author.openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Raid ended").queue());
+                        author.openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Raid beendet").queue());
                     } else {
-                        author.openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("An error occured ending the raid").queue());
+                        author.openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Es ist ein unerwarteter Fehler beim Beenden des Raids aufgetreten!").queue());
                     }
                 } else {
-                    author.openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("That raid doesn't exist on this server.").queue());
+                    author.openPrivateChannel().queue(privateChannel -> privateChannel.sendMessage("Der gesuchte Raid existiert nicht auf diesem Server.").queue());
                 }
             }
         }

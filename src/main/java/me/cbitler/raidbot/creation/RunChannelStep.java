@@ -44,7 +44,7 @@ public class RunChannelStep implements CreationStep {
      * {@inheritDoc}
      */
     public String getStepText() {
-        return "Enter the channel for raid run announcement:";
+        return "Bitte gebe den Channel ein, in dem die Ankündigung gemacht werden soll:";
     }
 
     /**

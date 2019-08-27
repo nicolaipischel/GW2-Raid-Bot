@@ -26,13 +26,13 @@ public class RunRoleSetupStep implements CreationStep {
             if(raid.getRolesWithNumbers().size() > 0) {
                 return true;
             } else {
-                e.getChannel().sendMessage("You must add atleast one role.").queue();
+                e.getChannel().sendMessage("Du musst mindestens eine Rolle hinzufügen!").queue();
                 return false;
             }
         } else {
             String[] parts = e.getMessage().getRawContent().split(":");
             if(parts.length < 2) {
-                e.getChannel().sendMessage("You need to specify the role in the format [amount]:[Role name]").queue();
+                e.getChannel().sendMessage("Du musst die Rolle im folgenden Format eingeben! [Anzahl]:[Rolle]").queue();
             } else {
                 try {
                     int amnt = Integer.parseInt(parts[0]);
@@ -40,7 +40,7 @@ public class RunRoleSetupStep implements CreationStep {
                     raid.getRolesWithNumbers().add(new RaidRole(amnt, roleName));
                     e.getChannel().sendMessage("Role added").queue();
                 } catch (Exception ex) {
-                    e.getChannel().sendMessage("Invalid input: Make sure it's in the format of [number]:[role], like 1:DPS").queue();
+                    e.getChannel().sendMessage("Üngültige Eingabe! Bitte stelle sicher, dass die Eingabe im folgenden Format ist [number]:[role], Beispiel 5:DPS").queue();
                 }
             }
             return false;

@@ -49,7 +49,7 @@ public class RaidManager {
                     }
                 });
             } catch (Exception e) {
-                System.out.println("Error encountered in sending message.");
+                System.out.println("Beim senden der Nachricht ist ein unerwarteter Fehler aufgetreten.");
                 e.printStackTrace();
                 throw e;
             }
