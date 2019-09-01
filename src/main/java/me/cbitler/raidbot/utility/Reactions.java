@@ -33,25 +33,25 @@ public class Reactions {
     };
 
     static Emote[] reactions = {
-            getEmoji("387295988282556417"), // Dragonhunter
-            getEmoji("387296167958151169"), // Firebrand
-            getEmoji("387296053659172869"), // Herald
-            getEmoji("387296192381321226"), // Renegade
-            getEmoji("387296013947502592"), // Berserker
-            getEmoji("387296212421836800"), // Spellbreaker
-            getEmoji("387296081823662081"), // Scrapper
-            getEmoji("387296176770121738"), // Holosmith
-            getEmoji("387296044716916738"), // Druid
-            getEmoji("387296205488521216"), // Soulbeast
-            getEmoji("387296029533274113"), // Daredevil
-            getEmoji("387296159716081664"), // Deadeye
-            getEmoji("387296219988361218"), // Weaver
-            getEmoji("387296089340117002"), // Tempest
-            getEmoji("387296021710897152"), // Chronomancer
-            getEmoji("387296184114610185"), // Mirage
-            getEmoji("387296061997318146"), // Reaper
-            getEmoji("387296198928891905"), // Scourge
-            getEmoji("387346852867211274") // X_
+            getEmoji("612749569096417300"), // Dragonhunter
+            getEmoji("612749569951924224"), // Firebrand
+            getEmoji("612749569700397056"), // Herald
+            getEmoji("612749569242955777"), // Renegade
+            getEmoji("612749569599733800"), // Berserker
+            getEmoji("612749569054212102"), // Spellbreaker
+            getEmoji("612749569465385127"), // Scrapper
+            getEmoji("612749569436024891"), // Holosmith
+            getEmoji("612749569448607805"), // Druid
+            getEmoji("612749569893203968"), // Soulbeast
+            getEmoji("612749569717043200"), // Daredevil
+            getEmoji("612749570052456498"), // Deadeye
+            getEmoji("612749567317901343"), // Weaver
+            getEmoji("612749567116705832"), // Tempest
+            getEmoji("612749569566179359"), // Chronomancer
+            getEmoji("612749569456996573"), // Mirage
+            getEmoji("612749569310064674"), // Reaper
+            getEmoji("612749570627076126"), // Scourge
+            getEmoji("616769294901968946") // X_
     };
 
     /**
